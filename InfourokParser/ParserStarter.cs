@@ -32,5 +32,10 @@ namespace InfourokParser
                 }
             }
         } 
+
+        public void getImg(string urlAddr)
+        {
+
+        }
     }
 }
