@@ -35,7 +35,21 @@ namespace InfourokParser
 
         public void getImg(string urlAddr)
         {
+            HtmlWeb web = new HtmlWeb();
+            var imgDoc = web.Load(urlAddr);
+            var res = imgDoc.DocumentNode.SelectSingleNode("//div[@id = 'material-gallery__image']");
 
+            using (WordprocessingDocument wordprocessing = WordprocessingDocument.Create("parsedText.docx", WordprocessingDocumentType.Document))
+            {
+                MainDocumentPart mainDocPart = wordprocessing.AddMainDocumentPart();
+                mainDocPart.Document = new Document();
+                mainDocPart.Document.Body = mainDocPart.Document.AppendChild(new Body());
+                Body body = mainDocPart.Document.Body;
+
+                Paragraph para = body.AppendChild(new Paragraph());
+                Run run = para.AppendChild(new Run());
+                Text text = run.AppendChild(new Text(res.InnerText.Replace("&nbsp;", " ")));
+            }  
         }
     }
 }

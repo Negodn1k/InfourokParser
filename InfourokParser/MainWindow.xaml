@@ -23,7 +23,10 @@
             <Label Content="Введите ссылку" HorizontalAlignment="Center" />
             <TextBox Width="300" x:Name="urlSelect" Margin="5"/>
             <Label Content="Выберите тип выгружаемых данных: "/>
-            <ComboBox x:Name="dataType" Margin="5,0,5,5" IsEnabled="False"/>
+            <ComboBox x:Name="dataType" Margin="5,0,5,5" IsEnabled="True">
+                <ComboBoxItem Content="Текст" x:Name="TextChoosen"/>
+                <ComboBoxItem Content="Фото" x:Name="PicturesChoosen"/>
+            </ComboBox>
             <Button Height="25" x:Name="finishButton" Click="finishButton_Click" IsEnabled="True" Content="Выгрузить" Margin="5,0,5,0"/>
         </StackPanel>
     </Grid>

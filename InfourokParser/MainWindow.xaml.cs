@@ -27,8 +27,15 @@ namespace InfourokParser
 
         private void finishButton_Click(object sender, RoutedEventArgs e)
         {
-            ParserStarter starter = new ParserStarter();
-            starter.GetText(urlSelect.Text);
+            if (dataType.Text.Equals("Текст"))
+            {
+                ParserStarter starter = new ParserStarter();
+                starter.GetText(urlSelect.Text);
+            } else
+            {
+                ParserStarter starter = new ParserStarter();
+                starter.GetText(urlSelect.Text);
+            }
         }
     }
 }
